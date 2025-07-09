@@ -1,56 +1,159 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8" />
-<title>Su Gibi Kalpler</title>
-<style>
-  html, body {
-    margin: 0; padding: 0; height: 100%; width: 100%;
-    overflow: hidden;
-    background: #fff;
-    font-family: Arial, sans-serif;
-    position: relative;
-  }
-  .hearts {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-  }
-  .heart {
-    position: absolute;
-    color: rgba(255, 0, 100, 0.15);
-    user-select: none;
-    font-size: 12px;
-    will-change: transform, opacity;
-    animation-timing-function: linear;
-    opacity: 0.5;
-  }
-  @keyframes floatUp {
-    0% {
-      transform: translateY(100vh) translateX(0);
-      opacity: 0.5;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Güler ❤️</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    50% {
-      opacity: 0.7;
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #fff0f5, #ffe6eb);
+      color: #333;
     }
-    100% {
-      transform: translateY(-10vh) translateX(0);
-      opacity: 0;
+    header {
+      background-color: #e60039;
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-  }
-  @keyframes sway {
-    0%, 100% {
-      transform: translateX(0);
+    header h1 {
+      font-size: 1.8rem;
     }
-    50% {
-      transform: translateX(5px);
+    nav a {
+      margin-left: 1.5rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
     }
-  }
-  .message {
-    position: relative;
-    z-index: 1;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1280&q=80') center/cover no-repeat;
+      color: white;
+      padding: 2rem;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(230, 0, 57, 0.5);
+      z-index: 0;
+    }
+    .hero-content {
+      z-index: 1;
+    }
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+    section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    section h3 {
+      font-size: 2rem;
+      color: #e60039;
+      margin-bottom: 1rem;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .feature-box {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 2rem;
+      width: 280px;
+    }
+    footer {
+      background: #e60039;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2rem;
+      }
+      .features {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Güler ❤️</h1>
+    <nav>
+      <a href="#hakkinda">Hakkında</a>
+      <a href="#ozellikler">Özellikler</a>
+      <a href="#iletisim">İletişim</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Güler seni çok seviyorum ❤️</h2>
+      <p>Bu sayfa sadece sana özel... Her şey senin gülüşünle güzel!</p>
+    </div>
+  </section>
+
+  <section id="hakkinda">
+    <h3>Hakkında</h3>
+    <p>"Güler ❤️" senin için hazırlanmış özel bir sevgi sitesidir. Her detayı seni düşünerek tasarlandı.</p>
+  </section>
+
+  <section id="ozellikler">
+    <h3>Özellikler</h3>
+    <div class="features">
+      <div class="feature-box">
+        <h4>💕 Romantik Tasarım</h4>
+        <p>Pembe tonlar, kalpler ve zarif geçişlerle sana özel bir atmosfer.</p>
+      </div>
+      <div class="feature-box">
+        <h4>📱 Mobil Uyumlu</h4>
+        <p>Telefon, tablet ya da bilgisayar fark etmez. Her zaman seninle.</p>
+      </div>
+      <div class="feature-box">
+        <h4>🎁 Sürprizlerle Dolu</h4>
+        <p>Her açılışta seni mutlu edecek detaylar ve mesajlar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="iletisim">
+    <h3>İletişim</h3>
+    <p>Bu sayfa bir aşk mesajı olarak hazırlandı. Daha fazlası için göz göze bakmamız yeter. ❤️</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Güler ❤️ Tüm Hakları Saklıdır.
+  </footer>
+</body>
+</html>
