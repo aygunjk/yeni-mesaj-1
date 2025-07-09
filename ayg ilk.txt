@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<title>Sevgi Mesajı</title>
+<style>
+  html, body {
+    margin: 0; padding: 0; height: 100%; width: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: #fff;
+    position: relative;
+  }
+  /* Kalp parçacıkları için container */
+  .hearts {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  /* Tek bir kalp */
+  .heart {
+    position: absolute;
+    color: rgba(255, 0, 100, 0.3);
+    font-size: 20px;
+    user-select: none;
+    animation: floatUp 10s linear infinite;
+    opacity: 0.6;
+  }
+  /* Kalplerin yukarı doğru hareketi */
+  @keyframes floatUp {
+    0% {
+      transform: translateY(100vh) scale(1);
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateY(-10vh) scale(1.2);
+      opacity: 0;
+    }
+  }
+  /* Ortadaki yazı */
+  .message {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    font-weight: bold;
+    color: #e60039;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    text-align: center;
+    padding: 20px;
+  }
+</style>
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+  <div class="message">Güler seni çok seviyorum ❤️</div>
+
+<script>
+  const heartsContainer = document.getElementById('hearts');
+  const heartCount = 50; // kaç kalp olsun
+
+  for(let i = 0; i < heartCount; i++) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.textContent = '❤';
+
+    // Kalbin rastgele yatay konumu
+    heart.style.left = Math.random() * 100 + 'vw';
+
+    // Animasyon gecikmesi
+    heart.style.animationDelay = (Math.random() * 10) + 's';
+
+    // Boyut rastgele
+    heart.style.fontSize = (10 + Math.random() * 20) + 'px';
+
+    heartsContainer.appendChild(heart);
+  }
+</script>
+</body>
+</html>
