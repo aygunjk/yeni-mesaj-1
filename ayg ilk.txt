@@ -2,13 +2,13 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8" />
-<title>Sevgi Mesajı</title>
+<title>Su Gibi Kalpler</title>
 <style>
   html, body {
     margin: 0; padding: 0; height: 100%; width: 100%;
     overflow: hidden;
-    font-family: Arial, sans-serif;
     background: #fff;
+    font-family: Arial, sans-serif;
     position: relative;
   }
   .hearts {
@@ -20,24 +20,32 @@
   }
   .heart {
     position: absolute;
-    color: rgba(255, 0, 100, 0.3);
+    color: rgba(255, 0, 100, 0.15);
     user-select: none;
-    opacity: 0.6;
+    font-size: 12px;
     will-change: transform, opacity;
     animation-timing-function: linear;
+    opacity: 0.5;
   }
   @keyframes floatUp {
     0% {
-      transform: translateY(100vh) translateX(0) scale(1);
-      opacity: 0.6;
+      transform: translateY(100vh) translateX(0);
+      opacity: 0.5;
     }
     50% {
-      transform: translateY(50vh) translateX(10px) scale(1.1);
-      opacity: 0.8;
+      opacity: 0.7;
     }
     100% {
-      transform: translateY(-10vh) translateX(0) scale(1.2);
+      transform: translateY(-10vh) translateX(0);
       opacity: 0;
+    }
+  }
+  @keyframes sway {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(5px);
     }
   }
   .message {
@@ -46,38 +54,3 @@
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    font-size: 48px;
-    font-weight: bold;
-    color: #e60039;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    text-align: center;
-    padding: 20px;
-  }
-</style>
-</head>
-<body>
-  <div class="hearts" id="hearts"></div>
-  <div class="message">Güler seni çok seviyorum ❤️</div>
-
-<script>
-  const heartsContainer = document.getElementById('hearts');
-  const heartCount = 30; // Daha az kalp, daha az kasma
-
-  for(let i = 0; i < heartCount; i++) {
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-    heart.textContent = '❤';
-
-    heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.fontSize = (10 + Math.random() * 20) + 'px';
-    heart.style.animationName = 'floatUp';
-    heart.style.animationDuration = (8 + Math.random() * 7) + 's';
-    heart.style.animationDelay = (Math.random() * 15) + 's';
-    heart.style.animationIterationCount = 'infinite';
-
-    heartsContainer.appendChild(heart);
-  }
-</script>
-</body>
-</html>
